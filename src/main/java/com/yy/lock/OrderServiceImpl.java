@@ -11,12 +11,14 @@ public class OrderServiceImpl implements Runnable {
     //静态
     private static OrderCodeGenerator ocg = new OrderCodeGenerator();
 
-    private static final int NUM = 10;
+    private static final int NUM = 60;
 
     private static CountDownLatch cdl = new CountDownLatch(NUM);
 
 //    private static Lock lock = new ReentrantLock();
-    private static Lock lock = new ZookeeperLock();
+
+    //这个不能用static
+    private  Lock lock = new ZookeeperLock();
 
     //创建订单
     private void createOrder(){

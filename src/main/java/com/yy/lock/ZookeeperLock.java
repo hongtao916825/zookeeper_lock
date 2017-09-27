@@ -15,11 +15,12 @@ import java.util.concurrent.locks.Lock;
 public class ZookeeperLock implements Lock {
 
     private static final String ZK_IP_PORT = "139.224.119.167:2181";
+//    private static final String ZK_IP_PORT = "106.14.149.59:2181";
     private static final String LOCK_NODE = "/LOCK";
 
-    private ZkClient zkClient = new ZkClient(ZK_IP_PORT);
+    private  ZkClient zkClient = new ZkClient(ZK_IP_PORT);
 
-    private CountDownLatch cdl;
+    private CountDownLatch cdl = null;
 
     //阻塞对的方式去获取锁
     public void lock() {
@@ -77,7 +78,6 @@ public class ZookeeperLock implements Lock {
 
     public void unlock() {
         zkClient.delete(LOCK_NODE);
-
     }
 
 
