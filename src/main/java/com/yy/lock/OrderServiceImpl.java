@@ -11,7 +11,7 @@ public class OrderServiceImpl implements Runnable {
     //静态
     private static OrderCodeGenerator ocg = new OrderCodeGenerator();
 
-    private static final int NUM = 60;
+    private static final int NUM = 50;
 
     private static CountDownLatch cdl = new CountDownLatch(NUM);
 
